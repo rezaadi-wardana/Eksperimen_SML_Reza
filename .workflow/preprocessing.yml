@@ -39,8 +39,8 @@ jobs:
 
       - name: Commit and push preprocessed data
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name ${{ secrets.username }}
+          git config --global user.email ${{ secrets.email }}
           git add preprocessing/loan_default_preprocessed.csv
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: preprocessed dataset"
           git push
